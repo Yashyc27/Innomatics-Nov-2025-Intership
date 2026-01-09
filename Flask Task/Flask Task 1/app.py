@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 class TextProcessor:
-    """A custom class to handle string transformations uniquely."""
+
     @staticmethod
     def process_data(raw_input):
         if not raw_input:
