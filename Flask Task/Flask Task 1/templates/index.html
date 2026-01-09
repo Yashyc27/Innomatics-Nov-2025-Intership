@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Core Transformer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="stage">
+        <header>
+            <h1>Encode.</h1>
+            <p>Processing user: {{ input_name }}</p>
+        </header>
+
+        <form action="/" method="GET" class="input-group">
+            <input type="text" name="name" placeholder="Type a name..." required autocomplete="off">
+        </form>
+
+        <div class="display">
+            <div class="result-row">
+                <span class="label">Uppercase</span>
+                <span class="data">{{ caps_name }}</span>
+            </div>
+            <div class="result-row">
+                <span class="label">Hexadecimal</span>
+                <span class="data">{{ hex_name }}</span>
+            </div>
+            <div class="result-row">
+                <span class="label">Base64</span>
+                <span class="data">{{ b64_name }}</span>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

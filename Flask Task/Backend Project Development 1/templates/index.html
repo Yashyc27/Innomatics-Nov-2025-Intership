@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Tester - GitHub Style</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <strong>Regex101</strong> / <span class="repo-name">Clone</span>
+    </div>
+</div>
+
+<div class="container main-content">
+    <form id="regexForm" method="POST">
+        <div class="box">
+            <div class="box-header">Regular Expression</div>
+            <div class="box-body">
+                <input type="text" name="regex" id="regexInput" value="{{ regex }}" placeholder="e.g. [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}" required>
+            </div>
+
+            <div class="box-header" style="border-top: 1px solid #d0d7de;">Test String</div>
+            <div class="box-body">
+                <textarea name="test_string" id="testInput" rows="8" placeholder="Enter text to match against..." required>{{ test_string }}</textarea>
+            </div>
+            
+            <div class="box-footer">
+                <button type="submit" class="btn-primary">Run Test</button>
+            </div>
+        </div>
+    </form>
+
+    {% if error %}
+    <div class="flash flash-error">
+        <strong>Invalid Regex:</strong> {{ error }}
+    </div>
+    {% endif %}
+
+    {% if matches %}
+    <div class="box" id="resultsBox">
+        <div class="box-header">
+            Matches <span class="counter">{{ matches|length }}</span>
+        </div>
+        <div class="box-body match-container">
+            {% for match in matches %}
+                <div class="match-row">{{ match }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
