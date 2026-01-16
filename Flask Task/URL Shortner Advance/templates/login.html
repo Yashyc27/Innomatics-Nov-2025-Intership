@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="matrix-card">
+            <h3 class="mb-4 text-center">> AUTHENTICATE_</h3>
+            <form action="/login" method="POST">
+                <div class="mb-3">
+                    <label class="small">> USERNAME</label>
+                    <input type="text" name="username" class="form-control" required>
+                </div>
+                <div class="mb-4">
+                    <label class="small">> PASSCODE</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-matrix w-100">Enter the Matrix</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="/signup" class="text-success small text-decoration-none">[ + Create_New_Node ]</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

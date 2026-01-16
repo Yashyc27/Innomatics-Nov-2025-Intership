@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+    --spot-green: #1DB954;
+    --spot-black: #121212;
+    --spot-light-black: #181818;
+    --spot-grey: #b3b3b3;
+    --spot-white: #ffffff;
+}
+
+body {
+    background-color: var(--spot-black);
+    color: var(--spot-white);
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.spot-card {
+    background: var(--spot-light-black);
+    border-radius: 8px;
+    padding: 24px;
+    transition: background 0.3s ease;
+}
+
+.spot-card:hover {
+    background: #282828;
+}
+
+.btn-spotify {
+    background-color: var(--spot-green);
+    color: black;
+    font-weight: 700;
+    border-radius: 500px;
+    padding: 12px 32px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.btn-spotify:hover {
+    transform: scale(1.04);
+    background-color: #1ed760;
+    color: black;
+}
+
+.form-control {
+    background-color: #3e3e3e !important;
+    border: 1px solid transparent !important;
+    color: white !important;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.form-control:focus {
+    background-color: #535353 !important;
+    box-shadow: none;
+    border-color: var(--spot-grey) !important;
+}
+
+.nav-link {
+    color: var(--spot-grey) !important;
+    font-weight: 700;
+}
+
+.nav-link:hover {
+    color: white !important;
+}
+
+.table {
+    color: var(--spot-grey);
+}
+
+.table-hover tbody tr:hover {
+    background-color: #282828;
+    color: white;
+}

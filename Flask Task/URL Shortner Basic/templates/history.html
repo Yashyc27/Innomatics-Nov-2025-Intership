@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>History | LinkZip</title>
+    <style>
+        body { background: #0f0c29; color: white; font-family: 'Inter', sans-serif; padding-top: 50px; }
+        .table { color: white; background: rgba(255, 255, 255, 0.03); border-radius: 15px; overflow: hidden; }
+        .table thead { background: rgba(255, 255, 255, 0.1); }
+        .url-link { color: #667eea; text-decoration: none; }
+        .url-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="fas fa-list-ul me-2"></i> URL History</h2>
+            <a href="/" class="btn btn-outline-light btn-sm">New Link</a>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="table table-borderless align-middle">
+                <thead>
+                    <tr>
+                        <th class="ps-4">Original Destination</th>
+                        <th>Shortened Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for url in urls %}
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <td class="ps-4 py-3">
+                            <small class="text-secondary d-block text-truncate" style="max-width: 350px;">{{ url.original_url }}</small>
+                        </td>
+                        <td>
+                            <a href="/{{ url.short_code }}" class="url-link" target="_blank">
+                                <i class="fas fa-link small me-1"></i> {{ request.host_url }}{{ url.short_code }}
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
