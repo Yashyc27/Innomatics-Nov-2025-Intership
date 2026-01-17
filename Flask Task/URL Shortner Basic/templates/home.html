@@ -19,8 +19,13 @@
             color: white;
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
+            /* Flexbox centering */
             display: flex;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
         }
 
         .glass-card {
@@ -83,8 +88,7 @@
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="text-center mb-4">
+            <div class="col-md-6 col-lg-5"> <div class="text-center mb-4">
                     <h1 class="display-4 fw-bold">Link<span style="color: #667eea;">Zip</span></h1>
                     <p class="text-secondary">Shorten, share, and track your links beautifully.</p>
                 </div>
@@ -102,7 +106,7 @@
                     <div class="mt-4 p-3 result-box">
                         <label class="small text-success mb-1">Your zipped link is ready!</label>
                         <div class="input-group">
-                            <input type="text" id="shortUrl" class="form-control border-0" value="{{ shortened_url }}" readonly>
+                            <input type="text" id="shortUrl" class="form-control border-0 bg-transparent" value="{{ shortened_url }}" readonly>
                             <button class="btn btn-success" onclick="copyText()"><i class="far fa-copy"></i></button>
                         </div>
                     </div>
@@ -111,7 +115,7 @@
                     {% with messages = get_flashed_messages() %}
                       {% if messages %}
                         {% for message in messages %}
-                          <div class="alert alert-danger border-0 bg-danger text-white mt-3 py-2 small">{{ message }}</div>
+                          <div class="alert alert-danger border-0 bg-danger text-white mt-3 py-2 small text-center">{{ message }}</div>
                         {% endfor %}
                       {% endif %}
                     {% endwith %}
@@ -128,7 +132,10 @@
         function copyText() {
             var copyText = document.getElementById("shortUrl");
             copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
             navigator.clipboard.writeText(copyText.value);
+            
+            // Optional: Change icon to checkmark briefly
             alert("Copied to clipboard! 🚀");
         }
     </script>

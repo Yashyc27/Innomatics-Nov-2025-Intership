@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+
+:root {
+    --clr-neon-pink: #ff00ff;
+    --clr-neon-blue: #00d2ff;
+    --clr-neon-yellow: #fefe33;
+    --clr-bg-gradient: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+}
+
+body {
+    background: var(--clr-bg-gradient);
+    font-family: 'Outfit', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* Glassmorphism Card with Rainbow Border */
+.classic-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(to right, var(--clr-neon-pink), var(--clr-neon-blue)) 1;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* Big, Bold, Colorful Buttons */
+.btn-classic {
+    background: linear-gradient(to right, #ff0080, #7928ca);
+    color: white;
+    font-weight: 900;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 30px;
+    transition: 0.3s all ease;
+    letter-spacing: 2px;
+}
+
+.btn-classic:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 20px var(--clr-neon-pink);
+    color: white;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.form-control:focus {
+    border-color: var(--clr-neon-blue) !important;
+    box-shadow: 0 0 15px var(--clr-neon-blue);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #00d2ff, #fefe33);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}

@@ -1,25 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row justify-content-center">
+<div class="row justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="col-md-5">
-        <div class="matrix-card">
-            <h3 class="mb-4 text-center">> INITIALIZE_NEW_NODE</h3>
-            <p class="text-success small text-center mb-4">ESTABLISHING CONNECTION TO ZION...</p>
+        <div class="classic-card">
+            <h2 class="text-gradient fw-900 mb-2">JOIN THE CLUB</h2>
+            <p class="text-white-50 mb-4">Create your account and start shortening.</p>
             
             <form action="/signup" method="POST">
                 <div class="mb-3">
-                    <label class="small">> ASSIGN_ID (5-9 CHARS)</label>
-                    <input type="text" name="username" class="form-control" placeholder="NODE_NAME" required>
+                    <label class="small fw-bold text-info mb-1">USERNAME (5-9 CHARS)</label>
+                    <input type="text" name="username" class="form-control" placeholder="CoolUser123" required>
                 </div>
                 <div class="mb-4">
-                    <label class="small">> ENCRYPT_KEY</label>
-                    <input type="password" name="password" class="form-control" placeholder="********" required>
+                    <label class="small fw-bold text-info mb-1">SECRET PASSWORD</label>
+                    <input type="password" name="password" class="form-control" placeholder="Make it strong!" required>
                 </div>
-                <button type="submit" class="btn btn-matrix w-100">DEPLOY_USER</button>
+                <button type="submit" class="btn btn-classic w-100">CREATE PROFILE</button>
             </form>
-            
             <div class="text-center mt-3">
-                <a href="/" class="text-success small text-decoration-none">[ RETURN_TO_LOG_IN ]</a>
+                <a href="/" class="text-white-50 small text-decoration-none">Already a member? <span class="text-white fw-bold">Log in here</span></a>
             </div>
         </div>
     </div>

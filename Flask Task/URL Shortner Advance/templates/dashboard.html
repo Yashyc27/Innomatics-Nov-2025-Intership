@@ -2,57 +2,52 @@
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-lg-10">
-        <div class="matrix-card mb-5">
-            <h2 class="mb-4 fw-bold">> INJECT_URL_FOR_SHORTENING</h2>
+        <div class="classic-card mb-5">
+            <h2 class="fw-900 mb-4">SHORTEN <span class="text-gradient">EVERYTHING.</span></h2>
+            
             <form action="/shorten" method="POST">
-                <div class="row g-2">
+                <div class="row g-3">
                     <div class="col-md-9">
-                        <input type="url" name="url" id="urlInput" class="form-control form-control-lg" 
-                               placeholder="HTTP://LONG_URL_DESTINATION.SYS" required>
+                        <input type="url" name="url" class="form-control form-control-lg" placeholder="Paste your long link here..." required>
                     </div>
                     <div class="col-md-3">
-                        <button class="btn btn-matrix btn-lg w-100" type="submit">COMPILE</button>
+                        <button class="btn btn-classic w-100 h-100" type="submit">GO!</button>
                     </div>
                 </div>
             </form>
 
             {% if request.args.get('shortened') %}
-            <div class="mt-4 p-3 border border-success">
-                <span class="small d-block text-success-50">> ENCODED_OUTPUT:</span>
-                <div class="d-flex justify-content-between align-items-center">
-                    <span class="fs-5 fw-bold" id="shortUrl">{{ request.host_url }}{{ request.args.get('shortened') }}</span>
-                    <button class="btn btn-matrix btn-sm" onclick="copyUrl()">COPY_CODE</button>
-                </div>
+            <div class="mt-4 p-4 border-dashed rounded-4 border-info text-center">
+                <p class="small fw-bold text-uppercase mb-1">Your Magic Link:</p>
+                <h3 class="text-gradient mb-3" id="shortUrl">{{ request.host_url }}{{ request.args.get('shortened') }}</h3>
+                <button class="btn btn-sm btn-outline-light rounded-pill px-4" onclick="copyUrl()">COPY LINK</button>
             </div>
             {% endif %}
         </div>
 
-        <div class="matrix-card">
-            <h4 class="mb-4">> DATA_STORAGE_HISTORY</h4>
+        <div class="classic-card">
+            <h4 class="fw-bold mb-4">YOUR SAVED LINKS</h4>
             <div class="table-responsive">
-                <table class="table table-dark table-hover mb-0">
+                <table class="table table-dark table-borderless align-middle">
                     <thead>
-                        <tr class="text-success small">
-                            <th>ORIGINAL_SECTOR</th>
-                            <th>COMPRESSED_KEY</th>
-                            <th class="text-end">EXECUTE</th>
+                        <tr class="border-bottom border-secondary">
+                            <th class="text-info">ORIGINAL URL</th>
+                            <th class="text-info">SHORT CODE</th>
+                            <th class="text-end text-info">ACTION</th>
                         </tr>
                     </thead>
-                    <tbody class="small">
+                    <tbody>
                         {% for url in current_user.urls | reverse %}
-                        <tr style="border-bottom: 1px solid var(--matrix-dark);">
+                        <tr class="hover-row">
                             <td class="text-truncate" style="max-width: 300px;">{{ url.original_url }}</td>
-                            <td class="fw-bold">{{ url.short_code }}</td>
+                            <td><span class="badge rounded-pill bg-primary px-3">{{ url.short_code }}</span></td>
                             <td class="text-end">
-                                <a href="/{{ url.short_code }}" target="_blank" class="text-success text-decoration-none">[ VIEW ]</a>
+                                <a href="/{{ url.short_code }}" target="_blank" class="btn btn-sm btn-outline-info">VISIT</a>
                             </td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
-            </div>
-            <div class="mt-4 text-end">
-                <a href="/logout" class="text-danger small text-decoration-none">[ TERMINATE_SESSION ]</a>
             </div>
         </div>
     </div>
@@ -62,7 +57,12 @@
 function copyUrl() {
     const text = document.getElementById("shortUrl").innerText;
     navigator.clipboard.writeText(text);
-    alert("LINK COPIED TO NEURAL BUFFER.");
+    alert("Copied! 🌈");
 }
 </script>
+
+<style>
+    .hover-row:hover { background: rgba(255,255,255,0.05); }
+    .fw-900 { font-weight: 900; }
+</style>
 {% endblock %}
