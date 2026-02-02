@@ -1,0 +1,24 @@
+artifact_path: file:///C:/Users/ychau/OneDrive/Documents/projects/Innomatics_Nov_2025_Intership/MLOPS
+  Tasks/ML Flow task/mlruns/3/models/m-5046e9329e22449b9de796c5467516c8/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.9
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.0
+    skops_trusted_types: null
+mlflow_version: 3.9.0
+model_id: m-5046e9329e22449b9de796c5467516c8
+model_size_bytes: 132654
+model_uuid: m-5046e9329e22449b9de796c5467516c8
+prompts: null
+run_id: b9d7c1cd4bd64526b6bc20e7ea97a8e2
+utc_time_created: '2026-02-02 09:25:35.938464'
