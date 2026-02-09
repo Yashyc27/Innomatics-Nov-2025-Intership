@@ -5,7 +5,6 @@ from src.preprocess import TextCleaner
 
 app = Flask(__name__)
 
-# Fetching the model via Tagging management
 model_uri = "models:/YonexSentimentModel@production"
 
 try:

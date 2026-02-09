@@ -1,0 +1,2 @@
+Best F1 Score: 0.9279125384352579
+Best Params: {'classifier': 'LogisticRegression', 'C': 0.6883121097792835}

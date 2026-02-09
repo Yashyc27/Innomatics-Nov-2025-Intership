@@ -4,7 +4,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-# Pre-download required NLTK data
+
 nltk.download(['stopwords', 'wordnet', 'omw-1.4'], quiet=True)
 
 class TextCleaner(BaseEstimator, TransformerMixin):
