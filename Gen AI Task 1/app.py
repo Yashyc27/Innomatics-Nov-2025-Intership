@@ -2,7 +2,7 @@ import streamlit as st
 import time
 from chatbot_engine import FinanceBotEngine
 
-st.set_page_config(page_title="Penny Wise AI", page_icon="🤡", layout="wide")
+st.set_page_config(page_title="Penny Wise AI",  layout="wide")
 
 
 st.markdown("""
@@ -41,15 +41,15 @@ if "chat_session" not in st.session_state:
     st.session_state.messages = []
 
 with st.sidebar:
-    st.title("🤡 Penny Wise")
+    st.title(" Penny Wise")
     st.metric(label="Status", value="Online", delta="Gold Mode")
-    if st.button("🔄 Reset Audit", use_container_width=True):
+    if st.button(" Reset Audit", use_container_width=True):
         st.session_state.chat_session = st.session_state.bot.start_new_session()
         st.session_state.messages = []
         st.rerun()
 
 
-st.title("💰 Penny Wise: Witty Wealth AI")
+st.title(" Penny Wise: Witty Wealth AI")
 
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
@@ -76,4 +76,4 @@ if prompt := st.chat_input("Deposit your financial query here..."):
             
             st.session_state.messages.append({"role": "assistant", "content": full_response})
         except Exception as e:
-            st.error(f"⚠️ Error: {e}")
+            st.error(f" Error: {e}")
