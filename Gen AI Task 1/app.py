@@ -2,10 +2,9 @@ import streamlit as st
 import time
 from chatbot_engine import FinanceBotEngine
 
-# --- 1. PAGE CONFIG ---
 st.set_page_config(page_title="Penny Wise AI", page_icon="🤡", layout="wide")
 
-# --- 2. AESTHETIC CUSTOM CSS (The Fix for SyntaxError) ---
+
 st.markdown("""
 <style>
     .stApp { 
@@ -33,7 +32,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# --- 3. INITIALIZATION ---
+
 if "bot" not in st.session_state:
     st.session_state.bot = FinanceBotEngine()
 
@@ -41,7 +40,6 @@ if "chat_session" not in st.session_state:
     st.session_state.chat_session = st.session_state.bot.start_new_session()
     st.session_state.messages = []
 
-# --- 4. SIDEBAR ---
 with st.sidebar:
     st.title("🤡 Penny Wise")
     st.metric(label="Status", value="Online", delta="Gold Mode")
@@ -50,7 +48,7 @@ with st.sidebar:
         st.session_state.messages = []
         st.rerun()
 
-# --- 5. CHAT INTERFACE ---
+
 st.title("💰 Penny Wise: Witty Wealth AI")
 
 for msg in st.session_state.messages:
@@ -68,7 +66,7 @@ if prompt := st.chat_input("Deposit your financial query here..."):
             response = st.session_state.chat_session.send_message(prompt)
             full_response = response.text
             
-            # Interactive typing effect
+
             displayed_text = ""
             for char in full_response:
                 displayed_text += char

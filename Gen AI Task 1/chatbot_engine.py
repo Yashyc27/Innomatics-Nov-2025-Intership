@@ -10,13 +10,10 @@ class FinanceBotEngine:
         if not api_key:
             raise ValueError("API Key missing! Check your .env file.")
         
-        # New 2026 SDK Client initialization
         self.client = genai.Client(api_key=api_key)
         
-        # Using the current stable flagship model
         self.model_id = 'gemini-2.5-flash'
         
-        # Advanced Prompt Engineering
         self.system_prompt = """
         ROLE: You are 'Penny Wise', a witty and brilliant Indian Financial Consultant.
         
