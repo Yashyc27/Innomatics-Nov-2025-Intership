@@ -2,7 +2,11 @@ import streamlit as st
 import time
 from chatbot_engine import FinanceBotEngine
 
+<<<<<<< HEAD
 st.set_page_config(page_title="Penny Wise AI", layout="wide")
+=======
+st.set_page_config(page_title="Penny Wise AI",  layout="wide")
+>>>>>>> 7d40ba9c020800b9346bfa6251e8387976b00223
 
 
 st.markdown("""
@@ -49,7 +53,11 @@ with st.sidebar:
         st.rerun()
 
 
+<<<<<<< HEAD
 st.title("Penny Wise: Witty Wealth AI")
+=======
+st.title(" Penny Wise: Witty Wealth AI")
+>>>>>>> 7d40ba9c020800b9346bfa6251e8387976b00223
 
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
@@ -76,4 +84,8 @@ if prompt := st.chat_input("Deposit your financial query here..."):
             
             st.session_state.messages.append({"role": "assistant", "content": full_response})
         except Exception as e:
+<<<<<<< HEAD
             st.error(f" Error: {e}")
+=======
+            st.error(f" Error: {e}")
+>>>>>>> 7d40ba9c020800b9346bfa6251e8387976b00223
