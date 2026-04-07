@@ -19,7 +19,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.title("🎬 AI Video Repurposer")
+st.title(" AI Video Repurposer")
 
 
 with st.sidebar:
@@ -35,12 +35,12 @@ if st.button("Generate Project"):
     if url:
         try:
             with st.status("Running Summarizer Pipeline...", expanded=True) as status:
-                st.write("📥 Processing transcript and generating web code...")
+                st.write("Processing transcript and generating web code...")
                 
                 # Using the pipeline from summarizer.py
                 web_code = full_service_pipeline.invoke(url)
                 
-                st.write("📦 Creating ZIP package...")
+                st.write(" Creating ZIP package...")
                 
                 tags = {'index.html': '--html--', 'style.css': '--css--', 'script.js': '--js--'}
                 zip_buffer = io.BytesIO()
@@ -54,7 +54,7 @@ if st.button("Generate Project"):
                             except:
                                 pass
                 
-                status.update(label="✅ Success!", state="complete", expanded=False)
+                status.update(label="Success!", state="complete", expanded=False)
 
             st.success("Files generated successfully.")
             
@@ -66,7 +66,7 @@ if st.button("Generate Project"):
             with col2:
                 st.subheader("Download")
                 st.download_button(
-                    label="📥 Download Project ZIP",
+                    label=" Download Project ZIP",
                     data=zip_buffer.getvalue(),
                     file_name="summarized_web_project.zip",
                     mime="application/zip"
