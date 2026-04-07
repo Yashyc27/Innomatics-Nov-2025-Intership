@@ -7,7 +7,11 @@ from langchain_mistralai import ChatMistralAI
 from langchain_community.document_loaders import YoutubeLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
+
 from langchain_core.run_nables import RunnableLambda
+
+from langchain_core.runnables import RunnableLambda
+
 from langchain_core.output_parsers import StrOutputParser
 
 load_dotenv()
